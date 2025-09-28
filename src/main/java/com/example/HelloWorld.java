@@ -3,29 +3,30 @@ package com.example;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.WebServlet;
 import java.io.IOException;
-
+import java.util.Scanner;
 
 @WebServlet("/")
-public class HelloWorld extends HttpServlet {
 
-    private String unusedField = "I am never used"; // ❌ Unused field
-    private String $pass = ""; // ❌ Unused field
-    @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-        resp.setContentType("text/plain");
-        resp.getWriter().write("Hello, Welcome to Magic Show..!");
+public class LoginPage {
+    public static void main(String[] args) {
+        // hardcoded credentials for demo
+        String correctUsername = "admin";
+        String correctPassword = "password123";
 
-        // ❌ Hardcoded credentials (Security issue)
-        String password = $pass;
+        Scanner scanner = new Scanner(System.in);
 
-        // ❌ Empty catch block
-        try {
-            int x = 1 / 0;
-        } catch (Exception e) {
-            // ignored
+        System.out.print("Enter username: ");
+        String username = scanner.nextLine();
+
+        System.out.print("Enter password: ");
+        String password = scanner.nextLine();
+
+        if (username.equals(correctUsername) && password.equals(correctPassword)) {
+            System.out.println("✅ Login successful! Welcome " + username);
+        } else {
+            System.out.println("❌ Invalid username or password!");
         }
 
-        // ❌ TODO comment
-        // TODO: improve this logic later
+        scanner.close();
     }
 }

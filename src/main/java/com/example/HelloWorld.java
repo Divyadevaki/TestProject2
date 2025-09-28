@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 @WebServlet("/")
 
-public class LoginPage {
+public class HelloWorld extends HttpServlet {
     public static void main(String[] args) {
         // hardcoded credentials for demo
         String correctUsername = "admin";
